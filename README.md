@@ -2,6 +2,39 @@
 
 Complete PagerDuty configuration for datacenter Building Management System (BMS) alert integration, designed for demo and production use in Sydney, Australia.
 
+## ⚠️ TODO - Remaining Configuration Items
+
+### 1. MS Teams Integration Setup
+**Status**: Not configured  
+**Priority**: High  
+**Description**: Configure MS Teams webhook connector to receive PagerDuty incident notifications in dedicated channels.
+
+**Steps Required**:
+1. Create MS Teams channels for incident notifications
+2. Add Incoming Webhook connector to each channel
+3. Update `terraform.tfvars` with webhook URLs
+4. Configure PagerDuty extension in MS Teams (optional)
+
+See [MS Teams Integration Guide](#ms-teams-integration-setup) below for detailed instructions.
+
+### 2. CMMS Integration Demo
+**Status**: Not configured  
+**Priority**: Medium  
+**Description**: Demonstrate integration between PagerDuty incidents and Computerized Maintenance Management System (CMMS) for work order creation.
+
+**Options to Explore**:
+- Webhook-based integration (PagerDuty → CMMS)
+- Bi-directional sync using PagerDuty API
+- Demo using mock CMMS endpoints
+- Integration with popular CMMS platforms (ServiceNow, Maximo, etc.)
+
+**Deliverables**:
+- Sample integration script or workflow
+- Demo scenario showing incident → work order flow
+- Documentation for CMMS integration patterns
+
+---
+
 ## Overview
 
 This Terraform configuration creates a complete PagerDuty setup for managing datacenter infrastructure alerts from Niagara BMS systems. It includes intelligent alert routing, escalation policies, on-call schedules, and event orchestrations tailored for critical datacenter operations.
@@ -19,7 +52,7 @@ This Terraform configuration creates a complete PagerDuty setup for managing dat
   - Critical equipment pattern matching (UPS, CRAC, Chiller, Core Network)
   - Intelligent severity mapping from Niagara BMS
   - Custom field extraction for troubleshooting
-- **MS Teams Integration**: Incident notifications and conference bridge
+- **MS Teams Integration**: Incident notifications and conference bridge (TODO: Configure webhooks)
 - **Intelligent Alert Grouping**: Reduces alert fatigue
 
 ## Architecture
@@ -44,6 +77,7 @@ This Terraform configuration creates a complete PagerDuty setup for managing dat
 - PagerDuty account (trial or paid)
 - PagerDuty API token with full access
 - User emails must not already exist in your PagerDuty account
+- MS Teams workspace (for incident notifications)
 
 ## Quick Start
 
@@ -99,6 +133,150 @@ terraform output
 | `services.tf` | 6 services with alert grouping |
 | `event_orchestrations.tf` | Advanced alert routing and enrichment |
 | `outputs.tf` | Integration keys and service IDs |
+
+## MS Teams Integration Setup
+
+### Overview
+PagerDuty can send incident notifications to MS Teams channels using Incoming Webhooks. This provides real-time visibility for your response teams.
+
+### Step 1: Create MS Teams Channels
+
+Create dedicated channels in your MS Teams workspace:
+
+1. **#pagerduty-incidents** (main incident channel)
+2. **#pagerduty-critical** (optional - critical alerts only)
+3. **#pagerduty-infrastructure** (optional - infrastructure team)
+4. **#pagerduty-environmental** (optional - environmental team)
+
+### Step 2: Add Incoming Webhook Connector
+
+For each channel you want to receive notifications:
+
+1. **Open the channel** in MS Teams
+2. **Click the ⋯ (three dots)** next to the channel name
+3. **Select "Connectors"** or "Manage channel" → "Connectors"
+4. **Search for "Incoming Webhook"**
+5. **Click "Configure"** or "Add"
+6. **Give it a name**: e.g., "PagerDuty Incidents"
+7. **Optional**: Upload a PagerDuty logo image
+8. **Click "Create"**
+9. **Copy the webhook URL** (looks like: `https://yourorg.webhook.office.com/webhookb2/...`)
+10. **Click "Done"**
+
+### Step 3: Update Terraform Configuration
+
+Edit `terraform.tfvars` and update the MS Teams webhook URL:
+
+```hcl
+teams_channel_incidents = "https://yourorg.webhook.office.com/webhookb2/YOUR-WEBHOOK-ID"
+```
+
+Then apply the changes:
+```bash
+terraform apply
+```
+
+### Step 4: Configure PagerDuty Extensions (In PagerDuty UI)
+
+After Terraform deployment, configure MS Teams extensions in PagerDuty:
+
+1. **Log into PagerDuty** web interface
+2. **Go to**: Integrations → Extensions
+3. **Click "New Extension"**
+4. **Select "Microsoft Teams"** (or "Generic V3 Webhook")
+5. **Configure**:
+   - **Name**: "MS Teams - Incidents Channel"
+   - **Webhook URL**: Paste your MS Teams webhook URL
+   - **Scope**: Select services to notify (or "All Services")
+6. **Click "Save"**
+
+### Step 5: Test the Integration
+
+Send a test alert to verify MS Teams notifications:
+
+```bash
+curl -X POST https://events.pagerduty.com/v2/enqueue \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "routing_key": "<your_integration_key>",
+    "event_action": "trigger",
+    "payload": {
+      "summary": "TEST: MS Teams Integration Check",
+      "source": "test-system",
+      "severity": "warning"
+    }
+  }'
+```
+
+You should see a notification appear in your MS Teams channel within seconds.
+
+### Alternative: PagerDuty App for MS Teams
+
+For richer integration, install the official PagerDuty app:
+
+1. **In MS Teams**: Click "Apps" in the left sidebar
+2. **Search for "PagerDuty"**
+3. **Click "Add"**
+4. **Follow the authentication flow** to connect your PagerDuty account
+5. **Add the app to channels** where you want incident notifications
+6. **Configure notification preferences** in the app settings
+
+**Benefits**:
+- Interactive incident cards with acknowledge/resolve buttons
+- Incident status updates in real-time
+- Ability to trigger incidents from Teams
+- On-call schedule visibility
+
+### Webhook Payload Format
+
+MS Teams webhooks expect MessageCard format. Example:
+
+```json
+{
+  "@type": "MessageCard",
+  "@context": "https://schema.org/extensions",
+  "summary": "PagerDuty Incident",
+  "themeColor": "FF0000",
+  "title": "🚨 Critical Alert: HVAC Failure",
+  "sections": [{
+    "activityTitle": "Incident #12345",
+    "activitySubtitle": "Triggered at 2024-03-08 14:30 AEDT",
+    "facts": [
+      {"name": "Service:", "value": "HVAC & Cooling"},
+      {"name": "Priority:", "value": "P1 - Critical"},
+      {"name": "Assigned:", "value": "Sarah Chen"}
+    ]
+  }],
+  "potentialAction": [{
+    "@type": "OpenUri",
+    "name": "View Incident",
+    "targets": [{"os": "default", "uri": "https://yourorg.pagerduty.com/incidents/12345"}]
+  }]
+}
+```
+
+### Troubleshooting MS Teams Integration
+
+**Webhook not working?**
+- Verify the webhook URL is correct and hasn't expired
+- Check that the connector is still enabled in the channel
+- Test the webhook directly using curl:
+  ```bash
+  curl -X POST "YOUR_WEBHOOK_URL" \
+    -H 'Content-Type: application/json' \
+    -d '{"text": "Test message from PagerDuty"}'
+  ```
+
+**Not receiving notifications?**
+- Check PagerDuty extension is enabled and configured
+- Verify the extension is associated with the correct services
+- Check MS Teams notification settings (not muted)
+
+**Webhook expired?**
+- MS Teams webhooks can expire if unused for 90 days
+- Recreate the webhook connector and update Terraform configuration
+
+---
 
 ## Event Orchestration Rules
 
@@ -300,6 +478,7 @@ For intelligent grouping, ensure the `config {}` block is present in `services.t
 For PagerDuty-specific questions:
 - [PagerDuty Documentation](https://support.pagerduty.com/)
 - [Terraform PagerDuty Provider](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs)
+- [MS Teams Integration Guide](https://support.pagerduty.com/docs/microsoft-teams)
 
 ## License
 
