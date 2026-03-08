@@ -1,5 +1,5 @@
-# Event Orchestrations for Niagara BMS Alert Mapping
-# Maps Niagara severity levels to PagerDuty priorities
+# Service Event Orchestrations
+# Maps Niagara severity to PagerDuty priority and adds location to title
 
 # Power & Electrical Service Orchestration
 resource "pagerduty_event_orchestration_service" "power_electrical" {
@@ -8,113 +8,173 @@ resource "pagerduty_event_orchestration_service" "power_electrical" {
   set {
     id = "start"
 
-    # UPS and power failures are critical
+    # Critical with Location
     rule {
-      label = "Power System Critical"
+      label = "Critical with Location"
       condition {
-        expression = "event.source matches part 'UPS' or event.source matches part 'PDU' or event.source matches part 'GEN'"
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 POWER SYSTEM ALERT - Critical infrastructure affected"
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
-    # Suppress maintenance windows
+    # Error with Location
     rule {
-      label = "Suppress Maintenance"
+      label = "Error with Location"
       condition {
-        expression = "event.custom_details.maintenance_mode matches 'true' or event.summary matches part '[MAINTENANCE]'"
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
       }
       actions {
-        suppress  = true
-        annotate  = "Suppressed: Scheduled maintenance window"
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
+    # Warning with Location
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Warning with Location"
+      condition {
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    # Info with Location
+    rule {
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    # Critical without Location
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: Power/Electrical - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
+    # Error without Location
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: Power/Electrical - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
+    # Warning without Location
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: Power/Electrical - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
+    # Info without Location
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: Power/Electrical - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.power_electrical]
@@ -127,149 +187,161 @@ resource "pagerduty_event_orchestration_service" "hvac_cooling" {
   set {
     id = "start"
 
-    # Critical HVAC failures
     rule {
-      label = "Critical HVAC Failure"
+      label = "Critical with Location"
       condition {
-        expression = "event.source matches part 'HVAC' and event.severity matches 'critical'"
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL HVAC FAILURE - Temperature rise imminent"
-
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
         extraction {
-          target = "event.custom_details.unit_id"
-          regex  = "HVAC-(\\w+)-(\\d+)"
-          source = "event.source"
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
         }
       }
     }
 
-    # CRAC unit failures are critical
     rule {
-      label = "CRAC Unit Failure"
+      label = "Error with Location"
       condition {
-        expression = "event.source matches part 'CRAC'"
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRAC unit failure - Server cooling at risk"
-      }
-    }
-
-    # Chiller alerts
-    rule {
-      label = "Chiller System Alert"
-      condition {
-        expression = "event.source matches part 'Chiller'"
-      }
-      actions {
-        annotate  = "⚠️ Chiller system alert - Monitor temperature trends"
-
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
         extraction {
-          target = "event.custom_details.unit_id"
-          regex  = "Chiller-(\\w+)-(\\d+)"
-          source = "event.source"
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
         }
       }
     }
 
-    # Suppress maintenance windows
     rule {
-      label = "Suppress Maintenance"
+      label = "Warning with Location"
       condition {
-        expression = "event.custom_details.maintenance_mode matches 'true' or event.summary matches part '[MAINTENANCE]'"
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
       }
       actions {
-        suppress  = true
-        annotate  = "Suppressed: Scheduled maintenance window"
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: HVAC/Cooling - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: HVAC/Cooling - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: HVAC/Cooling - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: HVAC/Cooling - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.hvac_cooling]
@@ -282,149 +354,161 @@ resource "pagerduty_event_orchestration_service" "environmental_monitoring" {
   set {
     id = "start"
 
-    # Critical temperature alerts
     rule {
-      label = "Critical Temperature Alert"
+      label = "Critical with Location"
       condition {
-        expression = "event.custom_details.component matches part 'Temperature' and event.severity matches 'critical'"
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL TEMPERATURE ALERT - Immediate response required"
-
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
         extraction {
-          target = "event.custom_details.sensor_location"
-          regex  = ".*-(\\w+)-(\\d+)"
-          source = "event.source"
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
         }
       }
     }
 
-    # Water leak detection - escalate immediately
     rule {
-      label = "Water Leak Detection"
+      label = "Error with Location"
       condition {
-        expression = "event.source matches part 'WATER-SENSOR'"
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 WATER LEAK DETECTED - Facilities response required"
-      }
-    }
-
-    # Standard environmental monitoring
-    rule {
-      label = "Standard Environmental Monitoring"
-      condition {
-        expression = "event.source matches part 'TEMP-SENSOR' or event.source matches part 'HUMIDITY'"
-      }
-      actions {
-        annotate  = "🌡️ Environmental monitoring alert - Check BMS dashboard"
-
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
         extraction {
-          target = "event.custom_details.sensor_location"
-          regex  = ".*-(\\w+)-(\\d+)"
-          source = "event.source"
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
         }
       }
     }
 
-    # Suppress maintenance windows
     rule {
-      label = "Suppress Maintenance"
+      label = "Warning with Location"
       condition {
-        expression = "event.custom_details.maintenance_mode matches 'true' or event.summary matches part '[MAINTENANCE]'"
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
       }
       actions {
-        suppress  = true
-        annotate  = "Suppressed: Scheduled maintenance window"
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: Environmental - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: Environmental - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: Environmental - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: Environmental - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.environmental_monitoring]
@@ -437,113 +521,161 @@ resource "pagerduty_event_orchestration_service" "physical_security" {
   set {
     id = "start"
 
-    # All security alerts are high priority
     rule {
-      label = "Security Alert"
+      label = "Critical with Location"
       condition {
-        expression = "event.severity matches 'critical' or event.severity matches 'error'"
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 SECURITY ALERT - Immediate response required"
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
-    # Suppress maintenance windows
     rule {
-      label = "Suppress Maintenance"
+      label = "Error with Location"
       condition {
-        expression = "event.custom_details.maintenance_mode matches 'true' or event.summary matches part '[MAINTENANCE]'"
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
       }
       actions {
-        suppress  = true
-        annotate  = "Suppressed: Scheduled maintenance window"
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Warning with Location"
+      condition {
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: Physical Security - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: Physical Security - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: Physical Security - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: Physical Security - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.physical_security]
@@ -557,87 +689,160 @@ resource "pagerduty_event_orchestration_service" "fire_safety" {
     id = "start"
 
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Critical with Location"
+      condition {
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Error with Location"
+      condition {
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Warning with Location"
+      condition {
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: Fire Safety - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: Fire Safety - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: Fire Safety - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: Fire Safety - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.fire_safety]
@@ -650,144 +855,161 @@ resource "pagerduty_event_orchestration_service" "network_infrastructure" {
   set {
     id = "start"
 
-    # Core network failures
     rule {
-      label = "Core Network Failure"
+      label = "Critical with Location"
       condition {
-        expression = "event.source matches part 'CORE' or event.source matches part 'SWITCH-CORE'"
+        expression = "event.severity matches 'critical' and event.custom_details.location exists"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CORE NETWORK FAILURE - Multiple systems affected"
-
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
         extraction {
-          target = "event.custom_details.device_location"
-          regex  = "SWITCH-(\\w+)-(\\w+)-(\\d+)"
-          source = "event.source"
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
         }
       }
     }
 
-    # Access switch failures are lower priority
     rule {
-      label = "Access Switch Issue"
+      label = "Error with Location"
       condition {
-        expression = "event.source matches part 'ACCESS'"
+        expression = "event.severity matches 'error' and event.custom_details.location exists"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚠️ Access switch issue - Limited impact"
-      }
-    }
-
-    # Suppress low severity info alerts
-    rule {
-      label = "Suppress Info Alerts"
-      condition {
-        expression = "event.severity matches 'info'"
-      }
-      actions {
-        suppress  = true
-        annotate  = "Suppressed: Low severity informational alert"
-      }
-    }
-
-    # Suppress maintenance windows
-    rule {
-      label = "Suppress Maintenance"
-      condition {
-        expression = "event.custom_details.maintenance_mode matches 'true' or event.summary matches part '[MAINTENANCE]'"
-      }
-      actions {
-        suppress  = true
-        annotate  = "Suppressed: Scheduled maintenance window"
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
       }
     }
 
     rule {
-      label = "Map Critical Severity to P1"
+      label = "Warning with Location"
+      condition {
+        expression = "event.severity matches 'warning' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Info with Location"
+      condition {
+        expression = "event.severity matches 'info' and event.custom_details.location exists"
+      }
+      actions {
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
+        variable {
+          name  = "loc"
+          path  = "event.custom_details.location"
+          type  = "regex"
+          value = "(.*)"
+        }
+        variable {
+          name  = "sum"
+          path  = "event.summary"
+          type  = "regex"
+          value = "(.*)"
+        }
+        extraction {
+          template = "[{{variables.loc}}] {{variables.sum}}"
+          target   = "event.summary"
+        }
+      }
+    }
+
+    rule {
+      label = "Critical"
       condition {
         expression = "event.severity matches 'critical'"
       }
       actions {
-        severity  = "critical"
-        priority  = data.pagerduty_priority.p1_critical.id
-        annotate  = "🚨 CRITICAL: Network Infrastructure - Immediate Response Required"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "critical"
+        priority = data.pagerduty_priority.p1_critical.id
       }
     }
 
     rule {
-      label = "Map Error Severity to P2"
+      label = "Error"
       condition {
         expression = "event.severity matches 'error'"
       }
       actions {
-        severity  = "error"
-        priority  = data.pagerduty_priority.p2_high.id
-        annotate  = "⚠️ ERROR: Network Infrastructure - Urgent Attention Needed"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "error"
+        priority = data.pagerduty_priority.p2_high.id
       }
     }
 
     rule {
-      label = "Map Warning Severity to P3"
+      label = "Warning"
       condition {
         expression = "event.severity matches 'warning'"
       }
       actions {
-        severity  = "warning"
-        priority  = data.pagerduty_priority.p3_low.id
-        annotate  = "⚡ WARNING: Network Infrastructure - Monitor Situation"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "warning"
+        priority = data.pagerduty_priority.p3_low.id
       }
     }
 
     rule {
-      label = "Map Info Severity to P4"
+      label = "Info"
       condition {
         expression = "event.severity matches 'info'"
       }
       actions {
-        severity  = "info"
-        priority  = data.pagerduty_priority.p4_low.id
-        annotate  = "ℹ️ INFO: Network Infrastructure - Informational Alert"
-
-        variable {
-          name  = "niagara_severity"
-          path  = "event.severity"
-          type  = "regex"
-          value = "(.*)"
-        }
+        severity = "info"
+        priority = data.pagerduty_priority.p4_low.id
       }
     }
   }
 
   catch_all {
-    actions {
-      severity = "warning"
-      annotate = "⚠️ Unknown severity from Niagara BMS - defaulting to warning"
-    }
+    actions {}
   }
 
   depends_on = [pagerduty_service.network_infrastructure]

@@ -27,3 +27,8 @@ variable "conference_bridge_url" {
   type        = string
   default     = "https://teams.microsoft.com/l/meetup-join/datacenter-ops"
 }
+
+variable "admin_email" {
+  description = "Admin email address"
+  type        = string
+}
