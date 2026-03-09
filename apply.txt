@@ -1,0 +1,607 @@
+[0m[1mpagerduty_user.sarah_chen: Refreshing state... [id=PMSS0G0][0m
+[0m[1mpagerduty_user.mike_rodriguez: Refreshing state... [id=P265BRC][0m
+[0m[1mdata.pagerduty_priority.p4_low: Reading...[0m[0m
+[0m[1mpagerduty_user.rachel_foster: Refreshing state... [id=P9RECGS][0m
+[0m[1mdata.pagerduty_priority.p3_low: Reading...[0m[0m
+[0m[1mpagerduty_incident_workflow.network_response_prompt: Refreshing state... [id=PF4U126][0m
+[0m[1mdata.pagerduty_priority.p1_critical: Reading...[0m[0m
+[0m[1mpagerduty_user.james_murphy: Refreshing state... [id=PIG403A][0m
+[0m[1mpagerduty_team.datacenter_ops: Refreshing state... [id=P2V3RDA][0m
+[0m[1mpagerduty_incident_workflow.hvac_response_prompt: Refreshing state... [id=PU9WLL3][0m
+[0m[1mdata.pagerduty_priority.p3_low: Read complete after 1s [id=P6USJ9V][0m
+[0m[1mpagerduty_incident_workflow.cmms_integration: Refreshing state... [id=PVHPUUN][0m
+[0m[1mpagerduty_user.robert_taylor: Refreshing state... [id=PXL6KMX][0m
+[0m[1mdata.pagerduty_priority.p1_critical: Read complete after 1s [id=PQD1KB8][0m
+[0m[1mpagerduty_user.lisa_patel: Refreshing state... [id=P2HAHTE][0m
+[0m[1mdata.pagerduty_priority.p4_low: Read complete after 1s [id=P2I4IX5][0m
+[0m[1mpagerduty_user.emma_wilson: Refreshing state... [id=PF6FMRN][0m
+[0m[1mpagerduty_user.amanda_lee: Refreshing state... [id=PL2RBBJ][0m
+[0m[1mpagerduty_user.david_kim: Refreshing state... [id=P3W60VG][0m
+[0m[1mpagerduty_user.kevin_zhang: Refreshing state... [id=P5FTC42][0m
+[0m[1mpagerduty_incident_workflow.critical_environmental: Refreshing state... [id=PT5UT1I][0m
+[0m[1mpagerduty_team.security: Refreshing state... [id=PHF1ROU][0m
+[0m[1mpagerduty_user.alex_turner: Refreshing state... [id=P75U186][0m
+[0m[1mpagerduty_team.environmental: Refreshing state... [id=PE5DQZ4][0m
+[0m[1mdata.pagerduty_priority.p2_high: Reading...[0m[0m
+[0m[1mpagerduty_team.management: Refreshing state... [id=PLRPS0H][0m
+[0m[1mpagerduty_user.jennifer_brooks: Refreshing state... [id=P6TLI64][0m
+[0m[1mpagerduty_team_membership.ops_mike: Refreshing state... [id=P265BRC:P2V3RDA][0m
+[0m[1mpagerduty_team_membership.ops_sarah: Refreshing state... [id=PMSS0G0:P2V3RDA][0m
+[0m[1mpagerduty_team_membership.sec_james: Refreshing state... [id=PIG403A:PHF1ROU][0m
+[0m[1mpagerduty_team_membership.sec_rachel: Refreshing state... [id=P9RECGS:PHF1ROU][0m
+[0m[1mpagerduty_team_membership.mgmt_amanda: Refreshing state... [id=PL2RBBJ:PLRPS0H][0m
+[0m[1mdata.pagerduty_priority.p2_high: Read complete after 0s [id=PN3DJLI][0m
+[0m[1mpagerduty_team_membership.mgmt_robert: Refreshing state... [id=PXL6KMX:PLRPS0H][0m
+[0m[1mpagerduty_team_membership.env_emma: Refreshing state... [id=PF6FMRN:PE5DQZ4][0m
+[0m[1mpagerduty_team_membership.env_david: Refreshing state... [id=P3W60VG:PE5DQZ4][0m
+[0m[1mpagerduty_schedule.environmental_oncall: Refreshing state... [id=PGLOSU6][0m
+[0m[1mpagerduty_team_membership.env_lisa: Refreshing state... [id=P2HAHTE:PE5DQZ4][0m
+[0m[1mpagerduty_schedule.management_escalation: Refreshing state... [id=PKXZT6W][0m
+[0m[1mpagerduty_team_membership.sec_kevin: Refreshing state... [id=P5FTC42:PHF1ROU][0m
+[0m[1mpagerduty_schedule.after_hours: Refreshing state... [id=POHFOLQ][0m
+[0m[1mpagerduty_schedule.security_oncall: Refreshing state... [id=PZCCR2T][0m
+[0m[1mpagerduty_team_membership.ops_alex: Refreshing state... [id=P75U186:P2V3RDA][0m
+[0m[1mpagerduty_schedule.business_hours: Refreshing state... [id=PDP0REG][0m
+[0m[1mpagerduty_schedule.primary_oncall: Refreshing state... [id=PW3RQQ3][0m
+[0m[1mpagerduty_schedule.power_specialists: Refreshing state... [id=PSU3PAD][0m
+[0m[1mpagerduty_incident_workflow.power_response_prompt: Refreshing state... [id=PXIHMAT][0m
+[0m[1mpagerduty_team_membership.mgmt_jennifer: Refreshing state... [id=P6TLI64:PLRPS0H][0m
+[0m[1mpagerduty_incident_workflow.fire_life_safety: Refreshing state... [id=P8JIRA5][0m
+[0m[1mpagerduty_incident_workflow.security_breach: Refreshing state... [id=PPW6SPV][0m
+[0m[1mpagerduty_incident_workflow.security_response_prompt: Refreshing state... [id=PQA8L8D][0m
+[0m[1mpagerduty_incident_workflow.power_failure: Refreshing state... [id=P5NXQKF][0m
+[0m[1mpagerduty_escalation_policy.security_response: Refreshing state... [id=PATLF8V][0m
+[0m[1mpagerduty_escalation_policy.critical_infrastructure: Refreshing state... [id=P1E4B0P][0m
+[0m[1mpagerduty_escalation_policy.network_infrastructure: Refreshing state... [id=P0GBBDR][0m
+[0m[1mpagerduty_escalation_policy.environmental_systems: Refreshing state... [id=PT8PDGF][0m
+[0m[1mpagerduty_escalation_policy.power_electrical: Refreshing state... [id=P8MDCS2][0m
+[0m[1mpagerduty_escalation_policy.life_safety_critical: Refreshing state... [id=PHCXGA8][0m
+[0m[1mpagerduty_service.physical_security: Refreshing state... [id=P0L8YEB][0m
+[0m[1mpagerduty_service.network_infrastructure: Refreshing state... [id=PYMXWKF][0m
+[0m[1mpagerduty_service.hvac_cooling: Refreshing state... [id=PJHUZ1I][0m
+[0m[1mpagerduty_service.environmental_monitoring: Refreshing state... [id=PG86YPV][0m
+[0m[1mpagerduty_service.power_electrical: Refreshing state... [id=PCYIXA5][0m
+[0m[1mpagerduty_service.fire_safety: Refreshing state... [id=PSA8I07][0m
+[0m[1mpagerduty_incident_workflow_trigger.security_trigger: Refreshing state... [id=8d68b65f-1125-4aea-b617-0c8b01df6c52][0m
+[0m[1mpagerduty_service_integration.physical_security_email: Refreshing state... [id=PKSSYZT][0m
+[0m[1mpagerduty_incident_workflow_trigger.security_breach_trigger: Refreshing state... [id=4c43dcf7-3262-4bb9-ae03-2bef29520701][0m
+[0m[1mpagerduty_alert_grouping_setting.physical_security: Refreshing state... [id=PVQR9BU][0m
+[0m[1mpagerduty_event_orchestration_service.physical_security: Refreshing state... [id=P0L8YEB][0m
+[0m[1mpagerduty_service_integration.physical_security_events_v2: Refreshing state... [id=P12TYCN][0m
+[0m[1mpagerduty_alert_grouping_setting.network_infrastructure: Refreshing state... [id=P3J66I1][0m
+[0m[1mpagerduty_service_integration.network_events_v2: Refreshing state... [id=PJLCYMU][0m
+[0m[1mpagerduty_event_orchestration_service.network_infrastructure: Refreshing state... [id=PYMXWKF][0m
+[0m[1mpagerduty_incident_workflow_trigger.network_trigger: Refreshing state... [id=2f5a8c56-74e5-4cfe-811b-d5e0b8f65084][0m
+[0m[1mpagerduty_service_integration.network_email: Refreshing state... [id=P55UZ1Z][0m
+[0m[1mpagerduty_service_dependency.security_depends_on_network: Refreshing state... [id=D2GTEED8FJTLX3QCSZU][0m
+[0m[1mpagerduty_alert_grouping_setting.environmental_monitoring: Refreshing state... [id=PO4F89E][0m
+[0m[1mpagerduty_service_integration.environmental_email: Refreshing state... [id=P1W6YP9][0m
+[0m[1mpagerduty_service_integration.environmental_events_v2: Refreshing state... [id=P4BEZRA][0m
+[0m[1mpagerduty_event_orchestration_service.environmental_monitoring: Refreshing state... [id=PG86YPV][0m
+[0m[1mpagerduty_service_dependency.environmental_depends_on_network: Refreshing state... [id=D2GTEEL0QBVO1FZXQKQ][0m
+[0m[1mpagerduty_incident_workflow_trigger.critical_environmental_trigger: Refreshing state... [id=26bbc332-38c4-4493-9035-f0e1b49c18c6][0m
+[0m[1mpagerduty_service_integration.hvac_email: Refreshing state... [id=PPR3ATP][0m
+[0m[1mpagerduty_alert_grouping_setting.hvac_cooling: Refreshing state... [id=PRE38M4][0m
+[0m[1mpagerduty_service_dependency.environmental_depends_on_hvac: Refreshing state... [id=D2GTEEL0QBVO1FZXQKT][0m
+[0m[1mpagerduty_service_integration.hvac_events_v2: Refreshing state... [id=PGPRYN4][0m
+[0m[1mpagerduty_incident_workflow_trigger.hvac_trigger: Refreshing state... [id=cbef40a9-db13-41df-bb5f-3fdfcaa2d183][0m
+[0m[1mpagerduty_service_dependency.environmental_depends_on_power: Refreshing state... [id=D2GTEEL0QBVO1FZXQKP][0m
+[0m[1mpagerduty_event_orchestration_service.hvac_cooling: Refreshing state... [id=PJHUZ1I][0m
+[0m[1mpagerduty_alert_grouping_setting.power_electrical: Refreshing state... [id=P7VU7XR][0m
+[0m[1mpagerduty_service_integration.power_events_v2: Refreshing state... [id=PCD3XXE][0m
+[0m[1mpagerduty_incident_workflow_trigger.power_trigger: Refreshing state... [id=6004eb32-8fc4-4104-9b52-898e8b29f9f3][0m
+[0m[1mpagerduty_incident_workflow_trigger.power_failure_trigger: Refreshing state... [id=da94990f-0ef8-482c-a47e-54cc8043fc58][0m
+[0m[1mpagerduty_service_dependency.hvac_depends_on_power: Refreshing state... [id=D2GTEEH4KXUMZ9V59S9][0m
+[0m[1mpagerduty_service_dependency.network_depends_on_power: Refreshing state... [id=D2GTEE5G4RRJSRGRVEX][0m
+[0m[1mpagerduty_service_integration.power_email: Refreshing state... [id=P8EFZDM][0m
+[0m[1mpagerduty_event_orchestration_service.power_electrical: Refreshing state... [id=PCYIXA5][0m
+[0m[1mpagerduty_service_dependency.security_depends_on_power: Refreshing state... [id=D2GTEED8FJTLX3QCSZT][0m
+[0m[1mpagerduty_service_dependency.fire_depends_on_power: Refreshing state... [id=D2GTEE9CA5SKUXLKC7D][0m
+[0m[1mpagerduty_alert_grouping_setting.fire_safety: Refreshing state... [id=P09I65B][0m
+[0m[1mpagerduty_service_dependency.fire_depends_on_network: Refreshing state... [id=D2GTEE9CA5SKUXLKC7E][0m
+[0m[1mpagerduty_service_integration.fire_safety_email: Refreshing state... [id=PT0RB5C][0m
+[0m[1mpagerduty_event_orchestration_service.fire_safety: Refreshing state... [id=PSA8I07][0m
+[0m[1mpagerduty_incident_workflow_trigger.fire_life_safety_trigger: Refreshing state... [id=d8100c05-89ad-4bff-a9e5-ffa9dc7cab7f][0m
+[0m[1mpagerduty_service_integration.fire_safety_events_v2: Refreshing state... [id=PZ3FWIR][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # pagerduty_incident_workflow.cmms_integration[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "cmms_integration" {
+        id          = "PVHPUUN"
+        name        = "Create CMMS Work Order"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "P7ZM2M8"
+            name   = "cmms_creation_prompt"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = <<-EOT
+                    📋 CMMS WORK ORDER CREATION
+                    
+                    Creating CMMS work order with the following details:
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    🆔 PagerDuty Incident: {{incident.id}}
+                    📌 Title: {{incident.title}}
+                    ⚠️ Urgency: {{incident.urgency}}
+                    🎯 Priority: {{incident.priority.summary}}
+                    🔧 Service: {{incident.service.summary}}
+                    🕐 Created: {{incident.created_at}}
+                    🔗 Link: {{incident.html_url}}
+                    
+                    Please create the CMMS ticket and reply with:
+                    "CMMS Work Order #[NUMBER] created"
+                EOT
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PWGDHRZ"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.critical_environmental[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "critical_environmental" {
+        id          = "PT5UT1I"
+        name        = "Critical Environmental Event"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PMUHDEN"
+            name   = "notify_management"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = "Critical environmental alert detected. Environmental and Infrastructure teams have been notified."
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PIIWD1K"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.fire_life_safety[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "fire_life_safety" {
+        id          = "P8JIRA5"
+        name        = "Fire & Life Safety Critical"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PUROA8U"
+            name   = "notify_life_safety_critical"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = "🚨 LIFE SAFETY CRITICAL: Fire or life safety system alert. All teams notified. Emergency protocols activated."
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PQF0ZW4"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+      [33m~[0m[0m step {
+            id     = "PN5CYGE"
+            name   = "add_all_responders"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "responders"
+              [32m+[0m[0m value     = jsonencode(
+                    [
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P6TLI64"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "PXL6KMX"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "PIG403A"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P75U186"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                    ]
+                )
+            }
+
+            [90m# (2 unchanged blocks hidden)[0m[0m
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.hvac_response_prompt[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "hvac_response_prompt" {
+        id          = "PU9WLL3"
+        name        = "HVAC System Response Guide"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PGPG77R"
+            name   = "hvac_initial_prompt"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = <<-EOT
+                    🌡️ HVAC INCIDENT RESPONSE CHECKLIST
+                    
+                    Please provide the following information:
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    📍 Affected Zone(s): [e.g., Zone 3, Server Room A]
+                    🌡️ Current Temperature: [°C]
+                    🎯 Target Temperature: [°C]
+                    📊 Impact Level: [None/Low/Medium/High/Critical]
+                    🔄 Redundancy Status: [Active/Partial/Failed/N/A]
+                    ⏱️ ETA to Resolution: [e.g., 30 minutes]
+                    🔧 Actions Taken: [Brief description]
+                    
+                    Reply with status updates as situation evolves.
+                EOT
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PCDV6V1"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+
+        [90m# (1 unchanged block hidden)[0m[0m
+    }
+
+[1m  # pagerduty_incident_workflow.network_response_prompt[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "network_response_prompt" {
+        id          = "PF4U126"
+        name        = "Network System Response Guide"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PTAOSCM"
+            name   = "network_initial_prompt"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = <<-EOT
+                    🌐 NETWORK INCIDENT RESPONSE CHECKLIST
+                    
+                    Please provide the following information:
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    📍 Affected Segment: [VLAN/Switch/Router]
+                    🔄 Failover Status: [Successful/Failed/In Progress/N/A]
+                    📊 Impact Level: [None/Low/Medium/High/Critical]
+                    👥 Customer Impact: [None/Minimal/Moderate/Severe]
+                    ⏱️ ETA to Resolution: [e.g., 45 minutes]
+                    🔍 Root Cause: [If identified]
+                    🔧 Actions Taken: [Brief description]
+                    
+                    Reply with status updates as situation evolves.
+                EOT
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.power_failure[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "power_failure" {
+        id          = "P5NXQKF"
+        name        = "Power Failure Response"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "P6WRY4R"
+            name   = "notify_critical_power_failure"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = "CRITICAL: Power system failure detected. Power specialists and infrastructure teams engaged."
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "P2K3XS1"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+      [33m~[0m[0m step {
+            id     = "PLGPXC8"
+            name   = "add_responders"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "responders"
+              [32m+[0m[0m value     = jsonencode(
+                    [
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P6TLI64"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P75U186"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                    ]
+                )
+            }
+
+            [90m# (2 unchanged blocks hidden)[0m[0m
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.power_response_prompt[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "power_response_prompt" {
+        id          = "PXIHMAT"
+        name        = "Power System Response Guide"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PQ10S0Z"
+            name   = "power_initial_prompt"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = <<-EOT
+                    ⚡ POWER SYSTEM INCIDENT RESPONSE CHECKLIST
+                    
+                    Please provide the following information:
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    📍 Affected System: [UPS/Generator/PDU/Circuit]
+                    🔋 Power Load: [%]
+                    ⏱️ Battery Runtime: [minutes remaining]
+                    🔄 Redundancy Status: [Active/Partial/Failed/N/A]
+                    📊 Impact Level: [None/Low/Medium/High/Critical]
+                    👥 Customer Impact: [None/Minimal/Moderate/Severe]
+                    ⏱️ ETA to Resolution: [e.g., 1 hour]
+                    🔧 Actions Taken: [Brief description]
+                    
+                    Reply with status updates as situation evolves.
+                EOT
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "P9RCRO9"
+            name   = "add_power_specialists"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "responders"
+              [32m+[0m[0m value     = jsonencode(
+                    [
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P75U186"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                    ]
+                )
+            }
+
+            [90m# (2 unchanged blocks hidden)[0m[0m
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.security_breach[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "security_breach" {
+        id          = "PPW6SPV"
+        name        = "Security Breach Response"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PF98CPX"
+            name   = "notify_security_breach"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = "SECURITY ALERT: Unauthorized access or breach detected. Security team and management notified immediately."
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PBZKBA7"
+            name   = "add_conference_bridge"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_url"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "conference_number"
+              [32m+[0m[0m value     = "https://teams.microsoft.com/l/meetup-join/YOUR_MEETING_URL"
+            }
+        }
+      [33m~[0m[0m step {
+            id     = "PY0ZAKH"
+            name   = "add_responders"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "responders"
+              [32m+[0m[0m value     = jsonencode(
+                    [
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P6TLI64"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "PIG403A"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                    ]
+                )
+            }
+
+            [90m# (2 unchanged blocks hidden)[0m[0m
+        }
+    }
+
+[1m  # pagerduty_incident_workflow.security_response_prompt[0m will be updated in-place
+[0m  [33m~[0m[0m resource "pagerduty_incident_workflow" "security_response_prompt" {
+        id          = "PQA8L8D"
+        name        = "Security System Response Guide"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m step {
+            id     = "PL2PQ6D"
+            name   = "security_initial_prompt"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "message"
+              [32m+[0m[0m value     = <<-EOT
+                    🔒 SECURITY INCIDENT RESPONSE CHECKLIST
+                    
+                    Please provide the following information:
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    📍 Location: [e.g., Main Entrance, Server Room Door 3]
+                    📹 Video Footage: [Captured/Under Review/Not Available/N/A]
+                    📊 Impact Level: [None/Low/Medium/High/Critical]
+                    🚨 Threat Level: [Low/Medium/High]
+                    ⏱️ ETA to Resolution: [e.g., 20 minutes]
+                    🔍 Incident Type: [Unauthorized Access/Breach/Alarm/Other]
+                    🔧 Actions Taken: [Brief description]
+                    
+                    Reply with status updates as situation evolves.
+                EOT
+            }
+
+            [90m# (1 unchanged block hidden)[0m[0m
+        }
+      [33m~[0m[0m step {
+            id     = "PHT1PUQ"
+            name   = "add_security_management"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [32m+[0m[0m input {
+              [32m+[0m[0m generated = false
+              [32m+[0m[0m name      = "responders"
+              [32m+[0m[0m value     = jsonencode(
+                    [
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "P6TLI64"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                      [32m+[0m[0m {
+                          [32m+[0m[0m id   = "PIG403A"
+                          [32m+[0m[0m type = "user_reference"
+                        },
+                    ]
+                )
+            }
+
+            [90m# (2 unchanged blocks hidden)[0m[0m
+        }
+    }
+
+[1mPlan:[0m [0m0 to add, 9 to change, 0 to destroy.
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0m
+
+Interrupt received.
+Please wait for Terraform to exit or data loss may occur.
+Gracefully shutting down...
+
