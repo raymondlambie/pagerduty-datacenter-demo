@@ -32,3 +32,26 @@ variable "admin_email" {
   description = "Admin email address"
   type        = string
 }
+
+# ============================================================================
+# CMMS Integration
+# ============================================================================
+
+variable "cmms_webhook_url" {
+  description = "Webhook URL for CMMS work order creation (use webhook.site for demo)"
+  type        = string
+  default     = "https://webhook.site/your-unique-url"
+}
+
+# MS Teams Integration Variables
+variable "msteams_org_id" {
+  description = "Microsoft Teams Organization ID for chat creation"
+  type        = string
+  default     = "dd649b90-2b30-45cb-a264-1130134c625e"
+}
+
+variable "msteams_user_id" {
+  description = "PagerDuty User ID for MS Teams integration"
+  type        = string
+  default     = "PY4G4Q1"
+}

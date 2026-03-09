@@ -56,9 +56,9 @@
                   icon: '⚡',
                   teams: ['Datacenter Ops', 'Management'],
                   sampleAlerts: [
-                    { title: 'UPS On Battery', severity: 'critical', location: 'Data Hall 1', details: 'UPS-HALL-1-PRIMARY: Battery runtime 45 minutes remaining, Load 85%, Mains status: Failed' },
-                    { title: 'PDU Overload Warning', severity: 'warning', location: 'Rack 42', details: 'PDU-HALL-2-RACK-42-A: Current load 92%, Threshold 80%, Load balancing required' },
-                    { title: 'Generator Failure', severity: 'critical', location: 'Building Generator 1', details: 'GEN-BLDG-01: Failed to start, Fuel level 85%, Service required immediately' }
+                    { title: 'CRITICAL: UPS On Battery - Data Hall 1', severity: 'critical', details: 'UPS-HALL-1-PRIMARY: Battery runtime 45 minutes remaining, Load 85%, Mains status: Failed' },
+                    { title: 'PDU Overload Warning - Rack 42', severity: 'warning', details: 'PDU-HALL-2-RACK-42-A: Current load 92%, Threshold 80%, Load balancing required' },
+                    { title: 'CRITICAL: Generator Failure - Building Generator 1', severity: 'critical', details: 'GEN-BLDG-01: Failed to start, Fuel level 85%, Service required immediately' }
                   ]
                 },
                 {
@@ -68,9 +68,9 @@
                   icon: '❄️',
                   teams: ['Environmental Team', 'Datacenter Ops'],
                   sampleAlerts: [
-                    { title: 'HVAC Unit Failure', severity: 'critical', location: 'Data Hall 1', details: 'HVAC-HALL-1-03: Compressor Failure, Temperature rising: 2°C per 10 minutes' },
-                    { title: 'CRAC Unit Offline', severity: 'critical', location: 'Server Room A', details: 'CRAC-A-02: Unit Offline, Backup status: Active' },
-                    { title: 'Chiller Low Efficiency', severity: 'warning', location: 'Building Chiller 1', details: 'Chiller-BLDG-01: Efficiency 72% (normal 85%), Schedule maintenance' }
+                    { title: 'CRITICAL: HVAC Unit Failure - Data Hall 1', severity: 'critical', details: 'HVAC-HALL-1-03: Compressor Failure, Temperature rising: 2°C per 10 minutes' },
+                    { title: 'CRAC Unit Offline - Server Room A', severity: 'critical', details: 'CRAC-A-02: Unit Offline, Backup status: Active' },
+                    { title: 'Chiller Low Efficiency - Building Chiller 1', severity: 'warning', details: 'Chiller-BLDG-01: Efficiency 72% (normal 85%), Schedule maintenance' }
                   ]
                 },
                 {
@@ -80,9 +80,9 @@
                   icon: '🌡️',
                   teams: ['Environmental Team', 'Datacenter Ops'],
                   sampleAlerts: [
-                    { title: 'Critical Temperature Alert', severity: 'critical', location: 'Server Room A', details: 'TEMP-SENSOR-ROOM-A-01: Current temp 32°C, Threshold 28°C' },
-                    { title: 'Water Leak Detected', severity: 'error', location: 'Data Hall 2', details: 'WATER-SENSOR-HALL-2-03: Row 5 - Immediate response required' },
-                    { title: 'High Humidity Alert', severity: 'warning', location: 'Server Room B', details: 'HUMIDITY-SENSOR-ROOM-B-02: Current 75% RH, Threshold 60%' }
+                    { title: 'Critical Temperature Alert - Server Room A', severity: 'critical', details: 'TEMP-SENSOR-ROOM-A-01: Current temp 32°C, Threshold 28°C' },
+                    { title: 'Water Leak Detected - Data Hall 2', severity: 'error', details: 'WATER-SENSOR-HALL-2-03: Data Hall 2, Row 5 - Immediate response required' },
+                    { title: 'High Humidity Alert - Server Room B', severity: 'warning', details: 'HUMIDITY-SENSOR-ROOM-B-02: Current 75% RH, Threshold 60%' }
                   ]
                 },
                 {
@@ -92,9 +92,9 @@
                   icon: '🔒',
                   teams: ['Security Team', 'Management'],
                   sampleAlerts: [
-                    { title: 'Unauthorized Door Access', severity: 'critical', location: 'Data Hall 1', details: 'DOOR-SENSOR-HALL-1-MAIN: Forced entry detected, Camera CAM-HALL-1-03' },
-                    { title: 'Multiple Failed Badge Attempts', severity: 'error', location: 'Server Room A', details: 'BADGE-READER-ROOM-A-01: 5 failed attempts, Badge ID: Unknown' },
-                    { title: 'Security Camera Offline', severity: 'warning', location: 'Data Hall 2', details: 'CAM-HALL-2-08: Camera offline for 15 minutes, Last frame captured at 14:23' }
+                    { title: 'SECURITY: Unauthorized Door Access - Data Hall 1', severity: 'critical', details: 'DOOR-SENSOR-HALL-1-MAIN: Forced entry detected, Camera CAM-HALL-1-03' },
+                    { title: 'Multiple Failed Badge Attempts - Server Room A', severity: 'error', details: 'BADGE-READER-ROOM-A-01: 5 failed attempts, Badge ID: Unknown' },
+                    { title: 'Security Camera Offline - Data Hall 2', severity: 'warning', details: 'CAM-HALL-2-08: Camera offline for 15 minutes, Last frame captured at 14:23' }
                   ]
                 },
                 {
@@ -104,9 +104,9 @@
                   icon: '🔥',
                   teams: ['Environmental Team', 'Security Team'],
                   sampleAlerts: [
-                    { title: 'Smoke Detected', severity: 'critical', location: 'Data Hall 1', details: 'SMOKE-DETECTOR-HALL-1-05: Aspirating Smoke Detection, Alert Level 2' },
-                    { title: 'Fire Suppression System Activated', severity: 'critical', location: 'Data Hall 2', details: 'SUPPRESSION-SYSTEM-HALL-2: FM-200 Gas, Discharge status: Active' },
-                    { title: 'Fire Alarm System Test', severity: 'info', location: 'Main Building', details: 'FIRE-PANEL-MAIN: Monthly System Test, Scheduled by Facilities Team, Duration 15 minutes' }
+                    { title: 'CRITICAL: Smoke Detected - Data Hall 1', severity: 'critical', details: 'SMOKE-DETECTOR-HALL-1-05: Aspirating Smoke Detection, Alert Level 2' },
+                    { title: 'CRITICAL: Fire Suppression System Activated', severity: 'critical', details: 'SUPPRESSION-SYSTEM-HALL-2: FM-200 Gas, Discharge status: Active' },
+                    { title: '[TEST] Fire Alarm System Test', severity: 'info', details: 'FIRE-PANEL-MAIN: Monthly System Test, Scheduled by Facilities Team, Duration 15 minutes' }
                   ]
                 },
                 {
@@ -116,9 +116,9 @@
                   icon: '🌐',
                   teams: ['Datacenter Ops', 'Management'],
                   sampleAlerts: [
-                    { title: 'Core Switch Failure', severity: 'critical', location: 'Building Core', details: 'SWITCH-CORE-BLDG-01: Affected systems: All data halls, Redundancy: Failover active' },
-                    { title: 'Network Switch Down', severity: 'error', location: 'Data Hall 2 Row 3', details: 'SWITCH-HALL-2-ROW-3-05: Affected racks 15-20, Customer impact: 6 customers' },
-                    { title: 'Access Switch Port Errors', severity: 'warning', location: 'Data Hall 1', details: 'SWITCH-ACCESS-HALL-1-08: Port GigabitEthernet 1/0/24, High CRC errors' }
+                    { title: 'CRITICAL: Core Switch Failure - Building Core', severity: 'critical', details: 'SWITCH-CORE-BLDG-01: Affected systems: All data halls, Redundancy: Failover active' },
+                    { title: 'Network Switch Down - Data Hall 2 Row 3', severity: 'error', details: 'SWITCH-HALL-2-ROW-3-05: Affected racks 15-20, Customer impact: 6 customers' },
+                    { title: 'Access Switch Port Errors - Hall 1', severity: 'warning', details: 'SWITCH-ACCESS-HALL-1-08: Port GigabitEthernet 1/0/24, High CRC errors' }
                   ]
                 }
               ];
@@ -191,10 +191,10 @@
                     group: "Datacenter BMS",
                     class: "Niagara Alert",
                     custom_details: {
-                      alert_details: sampleAlert.details,
-                      location: "Sydney Datacenter",
-                      bms_system: "Niagara Framework",
-                      service_id: service.id
+                    alert_details: sampleAlert.details,
+                    location: "Sydney Datacenter",
+                    bms_system: "Niagara Framework",
+                    service_id: service.id
                     }
                   },
                   links: [{
@@ -213,7 +213,7 @@
                   const response = await fetch('https://events.pagerduty.com/v2/enqueue', {
                     method: 'POST',
                     headers: {
-                      'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(payload)
                   });
@@ -246,56 +246,55 @@
                 const indicesToSend = selectedIndices.length > 0 
                   ? selectedIndices
                   : [Math.floor(Math.random() * service.sampleAlerts.length)];
-                
+
                 const repeatCount = getAlertCount(service.id);
-                
-                // Send all selected alerts, repeated by the count
+
                 for (let repeat = 0; repeat < repeatCount; repeat++) {
                   indicesToSend.forEach((alertIndex, idx) => {
                     const sampleAlert = service.sampleAlerts[alertIndex];
                     const totalDelay = (repeat * indicesToSend.length * 3500) + (idx * 3500);
 
                     if (sendReal) {
-                      setTimeout(() => {
-                        sendRealAlert(service, sampleAlert);
-                      }, totalDelay);
-                      return;
+                    setTimeout(() => {
+                    sendRealAlert(service, sampleAlert);
+                    }, totalDelay);
+                    return;
                     }
 
                     setTimeout(() => {
-                      const newAlert = {
-                        id: Date.now() + totalDelay + idx,
-                        serviceId: service.id,
-                        serviceName: service.name,
-                        serviceIcon: service.icon,
-                        serviceColor: service.color,
-                        title: sampleAlert.title,
-                        details: sampleAlert.details,
-                        severity: sampleAlert.severity,
-                        timestamp: new Date(),
-                        status: 'triggered',
-                        escalationLevel: 0,
-                        escalationTime: getEscalationTime(sampleAlert.severity)
-                      };
+                    const newAlert = {
+                    id: Date.now() + totalDelay + idx,
+                    serviceId: service.id,
+                    serviceName: service.name,
+                    serviceIcon: service.icon,
+                    serviceColor: service.color,
+                    title: sampleAlert.title,
+                    details: sampleAlert.details,
+                    severity: sampleAlert.severity,
+                    timestamp: new Date(),
+                    status: 'triggered',
+                    escalationLevel: 0,
+                    escalationTime: getEscalationTime(sampleAlert.severity)
+                    };
 
-                      setSimulatingAlert(newAlert);
+                    setSimulatingAlert(newAlert);
 
-                      setTimeout(() => {
-                        setSimulatingAlert(prev => prev ? {...prev, stage: 'integration'} : null);
-                      }, 500);
+                    setTimeout(() => {
+                    setSimulatingAlert(prev => prev ? {...prev, stage: 'integration'} : null);
+                    }, 500);
 
-                      setTimeout(() => {
-                        setSimulatingAlert(prev => prev ? {...prev, stage: 'pagerduty'} : null);
-                      }, 1500);
+                    setTimeout(() => {
+                    setSimulatingAlert(prev => prev ? {...prev, stage: 'pagerduty'} : null);
+                    }, 1500);
 
-                      setTimeout(() => {
-                        setSimulatingAlert(prev => prev ? {...prev, stage: 'service'} : null);
-                      }, 2500);
+                    setTimeout(() => {
+                    setSimulatingAlert(prev => prev ? {...prev, stage: 'service'} : null);
+                    }, 2500);
 
-                      setTimeout(() => {
-                        setActiveAlerts(prev => [newAlert, ...prev]);
-                        setSimulatingAlert(null);
-                      }, 3000);
+                    setTimeout(() => {
+                    setActiveAlerts(prev => [newAlert, ...prev]);
+                    setSimulatingAlert(null);
+                    }, 3000);
                     }, totalDelay);
                   });
                 }
@@ -319,11 +318,11 @@
                 const interval = setInterval(() => {
                   setActiveAlerts(prev => prev.map(alert => {
                     if (alert.status === 'triggered' && alert.escalationTime > 0) {
-                      const newTime = alert.escalationTime - 1;
-                      if (newTime === 0) {
-                        return {...alert, escalationLevel: alert.escalationLevel + 1, escalationTime: getEscalationTime(alert.severity)};
-                      }
-                      return {...alert, escalationTime: newTime};
+                    const newTime = alert.escalationTime - 1;
+                    if (newTime === 0) {
+                    return {...alert, escalationLevel: alert.escalationLevel + 1, escalationTime: getEscalationTime(alert.severity)};
+                    }
+                    return {...alert, escalationTime: newTime};
                     }
                     return alert;
                   }));
@@ -349,542 +348,554 @@
                 <div className="min-h-screen bg-gray-50 p-8">
                   <div className="max-w-7xl mx-auto">
                     <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-                            PagerDuty Datacenter Service Architecture
-                          </h1>
-                          <p className="text-gray-600">
-                            Niagara BMS Integration - Live Alert Simulation (Sydney/Australia Timezone)
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-sm text-gray-600">Active Alerts</div>
-                          <div className="text-3xl font-bold text-red-600">{activeAlerts.length}</div>
-                        </div>
-                      </div>
+                    <div className="flex justify-between items-center">
+                    <div>
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">
+                    PagerDuty Datacenter Service Architecture
+                    </h1>
+                    <p className="text-gray-600">
+                    Niagara BMS Integration - Live Alert Simulation (Sydney/Australia Timezone)
+                    </p>
+                    </div>
+                    <div className="text-right">
+                    <div className="text-sm text-gray-600">Active Alerts</div>
+                    <div className="text-3xl font-bold text-red-600">{activeAlerts.length}</div>
+                    </div>
+                    </div>
                     </div>
 
                     {apiResponse && (
-                      <div className={`rounded-lg shadow-lg p-4 mb-8 ${apiResponse.success ? 'bg-green-50 border-2 border-green-500' : 'bg-red-50 border-2 border-red-500'}`}>
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className={`font-bold text-lg mb-2 ${apiResponse.success ? 'text-green-800' : 'text-red-800'}`}>
-                              {apiResponse.success ? '✅ Alert Sent Successfully!' : '❌ Alert Failed'}
-                            </div>
-                            <div className={`text-sm ${apiResponse.success ? 'text-green-700' : 'text-red-700'}`}>
-                              Service: {apiResponse.service}
-                              {apiResponse.success && apiResponse.data && (
-                                <div className="mt-1">
-                                  <div>Status: {apiResponse.data.status}</div>
-                                  <div>Dedup Key: {apiResponse.data.dedup_key}</div>
-                                </div>
-                              )}
-                              {!apiResponse.success && apiResponse.error && (
-                                <div className="mt-1">Error: {apiResponse.error}</div>
-                              )}
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => setApiResponse(null)}
-                            className="text-gray-600 hover:text-gray-800 font-bold text-xl"
-                          >
-                            ×
-                          </button>
-                        </div>
-                      </div>
+                    <div className={`rounded-lg shadow-lg p-4 mb-8 ${apiResponse.success ? 'bg-green-50 border-2 border-green-500' : 'bg-red-50 border-2 border-red-500'}`}>
+                    <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                    <div className={`font-bold text-lg mb-2 ${apiResponse.success ? 'text-green-800' : 'text-red-800'}`}>
+                    {apiResponse.success ? '✅ Alert Sent Successfully!' : '❌ Alert Failed'}
+                    </div>
+                    <div className={`text-sm ${apiResponse.success ? 'text-green-700' : 'text-red-700'}`}>
+                    Service: {apiResponse.service}
+                    {apiResponse.success && apiResponse.data && (
+                    <div className="mt-1">
+                    <div>Status: {apiResponse.data.status}</div>
+                    <div>Dedup Key: {apiResponse.data.dedup_key}</div>
+                    </div>
+                    )}
+                    {!apiResponse.success && apiResponse.error && (
+                    <div className="mt-1">Error: {apiResponse.error}</div>
+                    )}
+                    </div>
+                    </div>
+                    <button
+                    onClick={() => setApiResponse(null)}
+                    className="text-gray-600 hover:text-gray-800 font-bold text-xl"
+                    >
+                    ×
+                    </button>
+                    </div>
+                    </div>
                     )}
 
                     {activeAlerts.filter(alert => !realAlertIds.includes(alert.id)).length > 0 && (
-                      <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">Active Incidents (Demo)</h2>
-                        <div className="space-y-3">
-                          {activeAlerts.filter(alert => !realAlertIds.includes(alert.id)).map(alert => (
-                            <div key={alert.id} className="border-2 border-red-200 rounded-lg p-4 bg-red-50">
-                              <div className="flex items-start justify-between">
-                                <div className="flex items-start flex-1">
-                                  <div className={`${alert.serviceColor} text-white rounded-full w-10 h-10 flex items-center justify-center text-xl mr-3 flex-shrink-0`}>
-                                    {alert.serviceIcon}
-                                  </div>
-                                  <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-1">
-                                      <span className={`text-xs px-2 py-1 rounded font-bold ${getSeverityColor(alert.severity)}`}>
-                                        {alert.severity.toUpperCase()}
-                                      </span>
-                                      <span className="text-xs text-gray-600">{alert.serviceName}</span>
-                                      <span className="text-xs text-gray-500">{formatTime(alert.timestamp)}</span>
-                                    </div>
-                                    <div className="font-bold text-gray-800 mb-1">{alert.title}</div>
-                                    <div className="text-sm text-gray-600 mb-2">{alert.details}</div>
-                                    <div className="flex items-center gap-4 text-sm">
-                                      <div className={`font-semibold ${alert.status === 'acknowledged' ? 'text-blue-600' : 'text-orange-600'}`}>
-                                        Status: {alert.status === 'triggered' ? 'TRIGGERED' : 'ACKNOWLEDGED'}
-                                      </div>
-                                      {alert.status === 'triggered' && (
-                                        <div className="text-orange-600 font-semibold">
-                                          ⏱ Escalates in: {alert.escalationTime}s (Level {alert.escalationLevel + 1})
-                                        </div>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex gap-2 ml-4">
-                                  {alert.status === 'triggered' && (
-                                    <button
-                                      onClick={() => acknowledgeAlert(alert.id)}
-                                      className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-blue-700"
-                                    >
-                                      Acknowledge
-                                    </button>
-                                  )}
-                                  <button
-                                    onClick={() => resolveAlert(alert.id)}
-                                    className="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-green-700"
-                                  >
-                                    Resolve
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Active Incidents (Demo)</h2>
+                    <div className="space-y-3">
+                    {activeAlerts.filter(alert => !realAlertIds.includes(alert.id)).map(alert => (
+                    <div key={alert.id} className="border-2 border-red-200 rounded-lg p-4 bg-red-50">
+                    <div className="flex items-start justify-between">
+                    <div className="flex items-start flex-1">
+                    <div className={`${alert.serviceColor} text-white rounded-full w-10 h-10 flex items-center justify-center text-xl mr-3 flex-shrink-0`}>
+                    {alert.serviceIcon}
+                    </div>
+                    <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                    <span className={`text-xs px-2 py-1 rounded font-bold ${getSeverityColor(alert.severity)}`}>
+                    {alert.severity.toUpperCase()}
+                    </span>
+                    <span className="text-xs text-gray-600">{alert.serviceName}</span>
+                    <span className="text-xs text-gray-500">{formatTime(alert.timestamp)}</span>
+                    </div>
+                    <div className="font-bold text-gray-800 mb-1">{alert.title}</div>
+                    <div className="text-sm text-gray-600 mb-2">{alert.details}</div>
+                    <div className="flex items-center gap-4 text-sm">
+                    <div className={`font-semibold ${alert.status === 'acknowledged' ? 'text-blue-600' : 'text-orange-600'}`}>
+                    Status: {alert.status === 'triggered' ? 'TRIGGERED' : 'ACKNOWLEDGED'}
+                    </div>
+                    {alert.status === 'triggered' && (
+                    <div className="text-orange-600 font-semibold">
+                    ⏱ Escalates in: {alert.escalationTime}s (Level {alert.escalationLevel + 1})
+                    </div>
+                    )}
+                    </div>
+                    </div>
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                    {alert.status === 'triggered' && (
+                    <button
+                    onClick={() => acknowledgeAlert(alert.id)}
+                    className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-blue-700"
+                    >
+                    Acknowledge
+                    </button>
+                    )}
+                    <button
+                    onClick={() => resolveAlert(alert.id)}
+                    className="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-green-700"
+                    >
+                    Resolve
+                    </button>
+                    </div>
+                    </div>
+                    </div>
+                    ))}
+                    </div>
+                    </div>
                     )}
 
                     <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6">Alert Flow Architecture</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Alert Flow Architecture</h2>
 
-                      <div className="flex items-center justify-between mb-8 relative">
-                        <div className="text-center relative">
-                          <div className={`bg-gray-700 text-white rounded-lg p-6 w-48 transition-all ${simulatingAlert?.stage === 'bms' || !simulatingAlert ? '' : 'opacity-50'}`}>
-                            <div className="text-4xl mb-2">🏢</div>
-                            <div className="font-bold">Niagara BMS</div>
-                            <div className="text-sm mt-2">Building Management System</div>
-                          </div>
-                          {simulatingAlert && !simulatingAlert.stage && (
-                            <div className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
-                              !
-                            </div>
-                          )}
-                        </div>
+                    <div className="flex items-center mb-8 relative px-8">
+                    <div className="text-center relative flex-1">
+                    <div className={`bg-gray-700 text-white rounded-lg p-6 w-full max-w-xs mx-auto transition-all ${simulatingAlert?.stage === 'bms' || !simulatingAlert ? '' : 'opacity-50'}`}>
+                    <div className="text-4xl mb-2">🏢</div>
+                    <div className="font-bold">Niagara BMS</div>
+                    <div className="text-sm mt-2">Building Management System</div>
+                    </div>
+                    {simulatingAlert && !simulatingAlert.stage && (
+                    <div className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
+                    !
+                    </div>
+                    )}
+                    </div>
 
-                        <div className="flex-1 flex items-center justify-center relative">
-                          <div className="text-4xl text-gray-400">→</div>
-                          {simulatingAlert?.stage === 'integration' && (
-                            <div className="absolute bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center animate-ping">
-                              •
-                            </div>
-                          )}
-                        </div>
+                    <div className="flex-1 flex items-center justify-center relative">
+                    <div className="text-4xl text-gray-400">→</div>
+                    {simulatingAlert?.stage === 'integration' && (
+                    <div className="absolute bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center animate-ping">
+                    •
+                    </div>
+                    )}
+                    </div>
 
-                        <div className="text-center relative">
-                          <div className={`bg-green-600 text-white rounded-lg p-6 w-48 transition-all ${simulatingAlert?.stage === 'integration' ? 'ring-4 ring-yellow-400' : simulatingAlert ? 'opacity-50' : ''}`}>
-                            <div className="text-4xl mb-2">🔄</div>
-                            <div className="font-bold">Integration</div>
-                            <div className="text-sm mt-2">Alert Mapping & Routing</div>
-                          </div>
-                        </div>
+                    <div className="text-center relative flex-1">
+                    <div className={`bg-green-600 text-white rounded-lg p-6 w-full max-w-xs mx-auto transition-all ${simulatingAlert?.stage === 'integration' ? 'ring-4 ring-yellow-400' : simulatingAlert ? 'opacity-50' : ''}`}>
+                    <div className="text-4xl mb-2">🔄</div>
+                    <div className="font-bold">Integration</div>
+                    <div className="text-sm mt-2">Alert Mapping & Routing</div>
+                    </div>
+                    </div>
 
-                        <div className="flex-1 flex items-center justify-center relative">
-                          <div className="text-4xl text-gray-400">→</div>
-                          {simulatingAlert?.stage === 'pagerduty' && (
-                            <div className="absolute bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center animate-ping">
-                              •
-                            </div>
-                          )}
-                        </div>
+                    <div className="flex-1 flex items-center justify-center relative">
+                    <div className="text-4xl text-gray-400">→</div>
+                    {simulatingAlert?.stage === 'pagerduty' && (
+                    <div className="absolute bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center animate-ping">
+                    •
+                    </div>
+                    )}
+                    </div>
 
-                        <div className="text-center relative">
-                          <div className={`bg-green-700 text-white rounded-lg p-6 w-48 transition-all ${simulatingAlert?.stage === 'pagerduty' ? 'ring-4 ring-yellow-400' : simulatingAlert ? 'opacity-50' : ''}`}>
-                            <div className="text-4xl mb-2">📟</div>
-                            <div className="font-bold">PagerDuty</div>
-                            <div className="text-sm mt-2">Incident Management</div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="text-center relative flex-1">
+                    <div className={`bg-green-700 text-white rounded-lg p-6 w-full max-w-xs mx-auto transition-all ${simulatingAlert?.stage === 'pagerduty' ? 'ring-4 ring-yellow-400' : simulatingAlert ? 'opacity-50' : ''}`}>
+                    <div className="text-4xl mb-2">📟</div>
+                    <div className="font-bold">PagerDuty</div>
+                    <div className="text-sm mt-2">Incident Management</div>
+                    </div>
+                    </div>
 
-                      {simulatingAlert && (
-                        <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-4 text-center">
-                          <div className="font-bold text-yellow-800 mb-2">🚨 Simulating Alert Routing...</div>
-                          <div className="text-sm text-yellow-700">
-                            {simulatingAlert.title} → {simulatingAlert.serviceName}
-                          </div>
-                        </div>
-                      )}
+                    <div className="flex-1 flex items-center justify-center relative">
+                    <div className="text-4xl text-gray-400">→</div>
+                    </div>
+
+                    <div className="text-center relative flex-1">
+                    <div className={`bg-blue-600 text-white rounded-lg p-6 w-full max-w-xs mx-auto transition-all ${simulatingAlert ? 'opacity-50' : ''}`}>
+                    <div className="text-4xl mb-2">🔧</div>
+                    <div className="font-bold">CMMS</div>
+                    <div className="text-sm mt-2">Work Order Management</div>
+                    </div>
+                    </div>
+                    </div>
+
+                    {simulatingAlert && (
+                    <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-4 text-center">
+                    <div className="font-bold text-yellow-800 mb-2">🚨 Simulating Alert Routing...</div>
+                    <div className="text-sm text-yellow-700">
+                    {simulatingAlert.title} → {simulatingAlert.serviceName}
+                    </div>
+                    </div>
+                    )}
                     </div>
 
                     <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6">Technical Services</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {services.map(service => {
-                          const selectedCount = getSelectedAlertsForService(service.id).length;
-                          const alertCount = getAlertCount(service.id);
-                          return (
-                            <div
-                              key={service.id}
-                              className={`border-2 rounded-lg p-6 hover:shadow-lg transition-all cursor-pointer relative ${
-                                simulatingAlert?.serviceId === service.id && simulatingAlert?.stage === 'service'
-                                  ? 'border-yellow-400 ring-4 ring-yellow-200'
-                                  : 'border-gray-200'
-                              }`}
-                              onClick={() => setSelectedService(service)}
-                            >
-                              {getServiceAlertCount(service.id) > 0 && (
-                                <div className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
-                                  {getServiceAlertCount(service.id)}
-                                </div>
-                              )}
-                              <div className="flex items-center mb-4">
-                                <div className={`${service.color} text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl mr-4`}>
-                                  {service.icon}
-                                </div>
-                                <h3 className="font-bold text-lg text-gray-800">{service.name}</h3>
-                              </div>
-                              <div className="mb-3">
-                                <div className="text-sm font-semibold text-gray-600 mb-2">
-                                  Sample Alerts (click to select):
-                                  <span className="ml-2 text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">
-                                    {selectedCount > 0 ? `${selectedCount} selected - will send ALL` : 'None selected - will send 1 random'}
-                                  </span>
-                                </div>
-                                <div className="space-y-2">
-                                  {service.sampleAlerts.map((alert, idx) => {
-                                    const isSelected = selectedAlerts[`${service.id}_${idx}`];
-                                    return (
-                                      <div
-                                        key={idx}
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          toggleAlertSelection(service.id, idx);
-                                        }}
-                                        className={`text-xs px-3 py-3 rounded-lg cursor-pointer transition-all flex items-center gap-3 border-2 ${
-                                          isSelected 
-                                            ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md transform scale-105' 
-                                            : 'bg-white border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-300'
-                                        }`}
-                                      >
-                                        <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 border-2 ${
-                                          isSelected 
-                                            ? 'bg-white border-white' 
-                                            : 'bg-white border-gray-400'
-                                        }`}>
-                                          {isSelected && <span className="text-blue-600 font-bold text-sm">✓</span>}
-                                        </div>
-                                        <span className="flex-1 leading-tight">{alert.title.split(':').pop().trim()}</span>
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Technical Services</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map(service => {
+                    const selectedCount = getSelectedAlertsForService(service.id).length;
+                    const alertCount = getAlertCount(service.id);
+                    return (
+                    <div
+                    key={service.id}
+                    className={`border-2 rounded-lg p-6 hover:shadow-lg transition-all cursor-pointer relative ${
+                    simulatingAlert?.serviceId === service.id && simulatingAlert?.stage === 'service'
+                    ? 'border-yellow-400 ring-4 ring-yellow-200'
+                    : 'border-gray-200'
+                    }`}
+                    onClick={() => setSelectedService(service)}
+                    >
+                    {getServiceAlertCount(service.id) > 0 && (
+                    <div className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+                    {getServiceAlertCount(service.id)}
+                    </div>
+                    )}
+                    <div className="flex items-center mb-4">
+                    <div className={`${service.color} text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl mr-4`}>
+                    {service.icon}
+                    </div>
+                    <h3 className="font-bold text-lg text-gray-800">{service.name}</h3>
+                    </div>
+                    <div className="mb-3">
+                    <div className="text-sm font-semibold text-gray-600 mb-2">
+                    Sample Alerts (click to select):
+                    <span className="ml-2 text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">
+                    {selectedCount > 0 ? `${selectedCount} selected - will send ALL` : 'None selected - will send 1 random'}
+                    </span>
+                    </div>
+                    <div className="space-y-2">
+                    {service.sampleAlerts.map((alert, idx) => {
+                    const isSelected = selectedAlerts[`${service.id}_${idx}`];
+                    return (
+                    <div
+                    key={idx}
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    toggleAlertSelection(service.id, idx);
+                    }}
+                    className={`text-xs px-3 py-3 rounded-lg cursor-pointer transition-all flex items-center gap-3 border-2 ${
+                    isSelected 
+                    ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md transform scale-105' 
+                    : 'bg-white border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-300'
+                    }`}
+                    >
+                    <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 border-2 ${
+                    isSelected 
+                    ? 'bg-white border-white' 
+                    : 'bg-white border-gray-400'
+                    }`}>
+                    {isSelected && <span className="text-blue-600 font-bold text-sm">✓</span>}
+                    </div>
+                    <span className="flex-1 leading-tight">{alert.title.split(':').pop().trim()}</span>
+                    </div>
+                    );
+                    })}
+                    </div>
+                    </div>
 
-                              <div className="mb-3 bg-gray-50 border-2 border-gray-300 rounded-lg p-3" onClick={(e) => e.stopPropagation()}>
-                                <div className="text-sm font-semibold text-gray-700 mb-2">
-                                  🔢 Number of times to send:
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <button
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      if (alertCount > 1) setAlertCount(service.id, alertCount - 1);
-                                    }}
-                                    className="bg-gray-600 text-white w-8 h-8 rounded font-bold hover:bg-gray-700 disabled:bg-gray-300"
-                                    disabled={alertCount <= 1}
-                                  >
-                                    −
-                                  </button>
-                                  <div className="flex-1 text-center">
-                                    <span className="text-2xl font-bold text-gray-800">{alertCount}</span>
-                                    <span className="text-xs text-gray-600 ml-1">time{alertCount !== 1 ? 's' : ''}</span>
-                                  </div>
-                                  <button
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      if (alertCount < 10) setAlertCount(service.id, alertCount + 1);
-                                    }}
-                                    className="bg-gray-600 text-white w-8 h-8 rounded font-bold hover:bg-gray-700 disabled:bg-gray-300"
-                                    disabled={alertCount >= 10}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                                <div className="text-xs text-gray-600 mt-2 text-center">
-                                  {selectedCount > 0 
-                                    ? `Will send ${selectedCount} alert${selectedCount > 1 ? 's' : ''} × ${alertCount} = ${selectedCount * alertCount} total`
-                                    : `Will send 1 random alert × ${alertCount} = ${alertCount} total`
-                                  }
-                                </div>
-                              </div>
+                    <div className="mb-3 bg-gray-50 border-2 border-gray-300 rounded-lg p-3" onClick={(e) => e.stopPropagation()}>
+                    <div className="text-sm font-semibold text-gray-700 mb-2">
+                    🔢 Number of times to send:
+                    </div>
+                    <div className="flex items-center gap-2">
+                    <button
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    if (alertCount > 1) setAlertCount(service.id, alertCount - 1);
+                    }}
+                    className="bg-gray-600 text-white w-8 h-8 rounded font-bold hover:bg-gray-700 disabled:bg-gray-300"
+                    disabled={alertCount <= 1}
+                    >
+                    −
+                    </button>
+                    <div className="flex-1 text-center">
+                    <span className="text-2xl font-bold text-gray-800">{alertCount}</span>
+                    <span className="text-xs text-gray-600 ml-1">time{alertCount !== 1 ? 's' : ''}</span>
+                    </div>
+                    <button
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    if (alertCount < 10) setAlertCount(service.id, alertCount + 1);
+                    }}
+                    className="bg-gray-600 text-white w-8 h-8 rounded font-bold hover:bg-gray-700 disabled:bg-gray-300"
+                    disabled={alertCount >= 10}
+                    >
+                    +
+                    </button>
+                    </div>
+                    <div className="text-xs text-gray-600 mt-2 text-center">
+                    {selectedCount > 0 
+                    ? `Will send ${selectedCount} alert${selectedCount > 1 ? 's' : ''} × ${alertCount} = ${selectedCount * alertCount} total`
+                    : `Will send 1 random alert × ${alertCount} = ${alertCount} total`
+                    }
+                    </div>
+                    </div>
 
-                              <div className="mt-3 pt-3 border-t border-gray-200 mb-3">
-                                <div className="text-sm font-semibold text-gray-600 mb-1">Teams:</div>
-                                <div className="flex gap-2">
-                                  {service.teams.map((team, idx) => (
-                                    <span key={idx} className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                                      {team}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                              <div className="mb-2">
-                                <input
-                                  type="text"
-                                  placeholder="Integration Key (optional)"
-                                  value={routingKeys[service.id] || ''}
-                                  onChange={(e) => {
-                                    e.stopPropagation();
-                                    setRoutingKeys(prev => ({...prev, [service.id]: e.target.value}));
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="w-full px-3 py-2 border border-gray-300 rounded text-sm"
-                                />
-                              </div>
-                              <div className="flex gap-2">
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    simulateAlert(service, false);
-                                  }}
-                                  className="flex-1 bg-blue-600 text-white py-2 rounded font-bold hover:bg-blue-700 transition-colors text-sm"
-                                >
-                                  🎭 Demo Alert
-                                </button>
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    simulateAlert(service, true);
-                                  }}
-                                  disabled={sendingAlert === service.id}
-                                  className="flex-1 bg-red-600 text-white py-2 rounded font-bold hover:bg-red-700 transition-colors disabled:bg-gray-400 text-sm"
-                                >
-                                  {sendingAlert === service.id ? '⏳' : '🚨'} Real Alert
-                                </button>
-                              </div>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  const sampleAlert = service.sampleAlerts[0];
-                                  setShowPayload({service, sampleAlert});
-                                }}
-                                className="w-full mt-2 bg-gray-700 text-white py-2 rounded font-bold hover:bg-gray-800 transition-colors text-sm"
-                              >
-                                📋 View Payload
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
+                    <div className="mt-3 pt-3 border-t border-gray-200 mb-3">
+                    <div className="text-sm font-semibold text-gray-600 mb-1">Teams:</div>
+                    <div className="flex gap-2">
+                    {service.teams.map((team, idx) => (
+                    <span key={idx} className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                    {team}
+                    </span>
+                    ))}
+                    </div>
+                    </div>
+                    <div className="mb-2">
+                    <input
+                    type="text"
+                    placeholder="Integration Key (optional)"
+                    value={routingKeys[service.id] || ''}
+                    onChange={(e) => {
+                    e.stopPropagation();
+                    setRoutingKeys(prev => ({...prev, [service.id]: e.target.value}));
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full px-3 py-2 border border-gray-300 rounded text-sm"
+                    />
+                    </div>
+                    <div className="flex gap-2">
+                    <button
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    simulateAlert(service, false);
+                    }}
+                    className="flex-1 bg-blue-600 text-white py-2 rounded font-bold hover:bg-blue-700 transition-colors text-sm"
+                    >
+                    🎭 Demo Alert
+                    </button>
+                    <button
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    simulateAlert(service, true);
+                    }}
+                    disabled={sendingAlert === service.id}
+                    className="flex-1 bg-red-600 text-white py-2 rounded font-bold hover:bg-red-700 transition-colors disabled:bg-gray-400 text-sm"
+                    >
+                    {sendingAlert === service.id ? '⏳' : '🚨'} Real Alert
+                    </button>
+                    </div>
+                    <button
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    const sampleAlert = service.sampleAlerts[0];
+                    setShowPayload({service, sampleAlert});
+                    }}
+                    className="w-full mt-2 bg-gray-700 text-white py-2 rounded font-bold hover:bg-gray-800 transition-colors text-sm"
+                    >
+                    📋 View Payload
+                    </button>
+                    </div>
+                    );
+                    })}
+                    </div>
                     </div>
 
                     {alertHistory.length > 0 && (
-                      <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">Recent Alert History</h2>
-                        <div className="space-y-2">
-                          {alertHistory.map(alert => (
-                            <div key={alert.id} className="border border-gray-200 rounded-lg p-3 bg-gray-50 flex items-center justify-between">
-                              <div className="flex items-center">
-                                <div className={`${alert.serviceColor} text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3`}>
-                                  {alert.serviceIcon}
-                                </div>
-                                <div>
-                                  <div className="font-semibold text-gray-800 text-sm">{alert.title}</div>
-                                  <div className="text-xs text-gray-600">{alert.serviceName} • {formatTime(alert.timestamp)}</div>
-                                </div>
-                              </div>
-                              <div className="flex items-center gap-3">
-                                <span className={`text-xs px-2 py-1 rounded font-bold ${getSeverityColor(alert.severity)}`}>
-                                  {alert.severity.toUpperCase()}
-                                </span>
-                                <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded font-bold">
-                                  ✓ RESOLVED
-                                </span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Recent Alert History</h2>
+                    <div className="space-y-2">
+                    {alertHistory.map(alert => (
+                    <div key={alert.id} className="border border-gray-200 rounded-lg p-3 bg-gray-50 flex items-center justify-between">
+                    <div className="flex items-center">
+                    <div className={`${alert.serviceColor} text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3`}>
+                    {alert.serviceIcon}
+                    </div>
+                    <div>
+                    <div className="font-semibold text-gray-800 text-sm">{alert.title}</div>
+                    <div className="text-xs text-gray-600">{alert.serviceName} • {formatTime(alert.timestamp)}</div>
+                    </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                    <span className={`text-xs px-2 py-1 rounded font-bold ${getSeverityColor(alert.severity)}`}>
+                    {alert.severity.toUpperCase()}
+                    </span>
+                    <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded font-bold">
+                    ✓ RESOLVED
+                    </span>
+                    </div>
+                    </div>
+                    ))}
+                    </div>
+                    </div>
                     )}
 
                     <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6">Escalation Policies by Severity</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {Object.entries(escalationPolicies).map(([severity, steps]) => (
-                          <div key={severity} className="border-2 border-gray-200 rounded-lg p-5">
-                            <h3 className="font-bold text-lg mb-4 text-gray-800">{severity}</h3>
-                            <div className="space-y-3">
-                              {steps.map((step, idx) => (
-                                <div key={idx} className="flex items-start">
-                                  <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
-                                    {idx + 1}
-                                  </div>
-                                  <div className="text-sm text-gray-700 pt-1">{step}</div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Escalation Policies by Severity</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {Object.entries(escalationPolicies).map(([severity, steps]) => (
+                    <div key={severity} className="border-2 border-gray-200 rounded-lg p-5">
+                    <h3 className="font-bold text-lg mb-4 text-gray-800">{severity}</h3>
+                    <div className="space-y-3">
+                    {steps.map((step, idx) => (
+                    <div key={idx} className="flex items-start">
+                    <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
+                    {idx + 1}
+                    </div>
+                    <div className="text-sm text-gray-700 pt-1">{step}</div>
+                    </div>
+                    ))}
+                    </div>
+                    </div>
+                    ))}
+                    </div>
                     </div>
 
                     {showPayload && (
-                      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setShowPayload(null)}>
-                        <div className="bg-white rounded-lg p-8 max-w-3xl w-full max-h-screen overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-                          <div className="flex items-center justify-between mb-6">
-                            <div className="flex items-center">
-                              <div className={`${showPayload.service.color} text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl mr-4`}>
-                                {showPayload.service.icon}
-                              </div>
-                              <div>
-                                <h2 className="text-2xl font-bold text-gray-800">Alert Payload</h2>
-                                <p className="text-gray-600">{showPayload.service.name}</p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => setShowPayload(null)}
-                              className="text-gray-600 hover:text-gray-800 font-bold text-2xl"
-                            >
-                              ×
-                            </button>
-                          </div>
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setShowPayload(null)}>
+                    <div className="bg-white rounded-lg p-8 max-w-3xl w-full max-h-screen overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center">
+                    <div className={`${showPayload.service.color} text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl mr-4`}>
+                    {showPayload.service.icon}
+                    </div>
+                    <div>
+                    <h2 className="text-2xl font-bold text-gray-800">Alert Payload</h2>
+                    <p className="text-gray-600">{showPayload.service.name}</p>
+                    </div>
+                    </div>
+                    <button
+                    onClick={() => setShowPayload(null)}
+                    className="text-gray-600 hover:text-gray-800 font-bold text-2xl"
+                    >
+                    ×
+                    </button>
+                    </div>
 
-                          <div className="mb-4">
-                            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                              <div className="font-bold text-blue-900 mb-1">PagerDuty Events API v2</div>
-                              <div className="text-sm text-blue-800">POST https://events.pagerduty.com/v2/enqueue</div>
-                            </div>
+                    <div className="mb-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
+                    <div className="font-bold text-blue-900 mb-1">PagerDuty Events API v2</div>
+                    <div className="text-sm text-blue-800">POST https://events.pagerduty.com/v2/enqueue</div>
+                    </div>
 
-                            <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                              <pre>{JSON.stringify(generatePayload(showPayload.service, showPayload.sampleAlert), null, 2)}</pre>
-                            </div>
-                          </div>
+                    <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                    <pre>{JSON.stringify(generatePayload(showPayload.service, showPayload.sampleAlert), null, 2)}</pre>
+                    </div>
+                    </div>
 
-                          <div className="flex gap-3">
-                            <button
-                              onClick={() => {
-                                navigator.clipboard.writeText(JSON.stringify(generatePayload(showPayload.service, showPayload.sampleAlert), null, 2));
-                              }}
-                              className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
-                            >
-                              📋 Copy Payload
-                            </button>
-                            <button
-                              onClick={() => setShowPayload(null)}
-                              className="flex-1 bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-colors"
-                            >
-                              Close
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="flex gap-3">
+                    <button
+                    onClick={() => {
+                    navigator.clipboard.writeText(JSON.stringify(generatePayload(showPayload.service, showPayload.sampleAlert), null, 2));
+                    }}
+                    className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                    >
+                    📋 Copy Payload
+                    </button>
+                    <button
+                    onClick={() => setShowPayload(null)}
+                    className="flex-1 bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-colors"
+                    >
+                    Close
+                    </button>
+                    </div>
+                    </div>
+                    </div>
                     )}
 
                     {selectedService && (
-                      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedService(null)}>
-                        <div className="bg-white rounded-lg p-8 max-w-2xl w-full" onClick={(e) => e.stopPropagation()}>
-                          <div className="flex items-center mb-6">
-                            <div className={`${selectedService.color} text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl mr-4`}>
-                              {selectedService.icon}
-                            </div>
-                            <div>
-                              <h2 className="text-2xl font-bold text-gray-800">{selectedService.name}</h2>
-                              <p className="text-gray-600">Service Details</p>
-                            </div>
-                          </div>
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedService(null)}>
+                    <div className="bg-white rounded-lg p-8 max-w-2xl w-full" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex items-center mb-6">
+                    <div className={`${selectedService.color} text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl mr-4`}>
+                    {selectedService.icon}
+                    </div>
+                    <div>
+                    <h2 className="text-2xl font-bold text-gray-800">{selectedService.name}</h2>
+                    <p className="text-gray-600">Service Details</p>
+                    </div>
+                    </div>
 
-                          <div className="mb-6">
-                            <h3 className="font-bold text-lg mb-3 text-gray-800">Sample Alerts:</h3>
-                            <div className="space-y-2">
-                              {selectedService.sampleAlerts.map((alert, idx) => (
-                                <div key={idx} className="bg-gray-100 px-3 py-2 rounded text-sm">
-                                  <div className="font-semibold">{alert.title}</div>
-                                  <div className="text-xs text-gray-600 mt-1">{alert.details}</div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                    <div className="mb-6">
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Sample Alerts:</h3>
+                    <div className="space-y-2">
+                    {selectedService.sampleAlerts.map((alert, idx) => (
+                    <div key={idx} className="bg-gray-100 px-3 py-2 rounded text-sm">
+                    <div className="font-semibold">{alert.title}</div>
+                    <div className="text-xs text-gray-600 mt-1">{alert.details}</div>
+                    </div>
+                    ))}
+                    </div>
+                    </div>
 
-                          <div className="mb-6">
-                            <h3 className="font-bold text-lg mb-3 text-gray-800">Assigned Teams:</h3>
-                            <div className="flex gap-3">
-                              {selectedService.teams.map((team, idx) => (
-                                <span key={idx} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-medium">
-                                  {team}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
+                    <div className="mb-6">
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Assigned Teams:</h3>
+                    <div className="flex gap-3">
+                    {selectedService.teams.map((team, idx) => (
+                    <span key={idx} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-medium">
+                    {team}
+                    </span>
+                    ))}
+                    </div>
+                    </div>
 
-                          <button
-                            onClick={() => setSelectedService(null)}
-                            className="w-full bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-colors"
-                          >
-                            Close
-                          </button>
-                        </div>
-                      </div>
+                    <button
+                    onClick={() => setSelectedService(null)}
+                    className="w-full bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-colors"
+                    >
+                    Close
+                    </button>
+                    </div>
+                    </div>
                     )}
 
                     <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6">Key Demo Features</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="flex items-start">
-                          <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
-                          <div>
-                            <div className="font-bold text-gray-800">Multi-Alert Selection & Repeat</div>
-                            <div className="text-sm text-gray-600">Select multiple alerts and choose how many times to send them (1-10×)</div>
-                          </div>
-                        </div>
-                        <div className="flex items-start">
-                          <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
-                          <div>
-                            <div className="font-bold text-gray-800">Real PagerDuty Alerts</div>
-                            <div className="text-sm text-gray-600">Send actual alerts to PagerDuty via Events API v2</div>
-                          </div>
-                        </div>
-                        <div className="flex items-start">
-                          <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
-                          <div>
-                            <div className="font-bold text-gray-800">Payload Viewer</div>
-                            <div className="text-sm text-gray-600">View and copy JSON payloads for each alert type</div>
-                          </div>
-                        </div>
-                        <div className="flex items-start">
-                          <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
-                          <div>
-                            <div className="font-bold text-gray-800">Demo Mode</div>
-                            <div className="text-sm text-gray-600">Visual simulation without sending real alerts</div>
-                          </div>
-                        </div>
-                      </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Key Demo Features</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-start">
+                    <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
+                    <div>
+                    <div className="font-bold text-gray-800">Multi-Alert Selection & Repeat</div>
+                    <div className="text-sm text-gray-600">Select multiple alerts and choose how many times to send them (1-10×)</div>
+                    </div>
+                    </div>
+                    <div className="flex items-start">
+                    <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
+                    <div>
+                    <div className="font-bold text-gray-800">Real PagerDuty Alerts</div>
+                    <div className="text-sm text-gray-600">Send actual alerts to PagerDuty via Events API v2</div>
+                    </div>
+                    </div>
+                    <div className="flex items-start">
+                    <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
+                    <div>
+                    <div className="font-bold text-gray-800">Payload Viewer</div>
+                    <div className="text-sm text-gray-600">View and copy JSON payloads for each alert type</div>
+                    </div>
+                    </div>
+                    <div className="flex items-start">
+                    <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">✓</div>
+                    <div>
+                    <div className="font-bold text-gray-800">Demo Mode</div>
+                    <div className="text-sm text-gray-600">Visual simulation without sending real alerts</div>
+                    </div>
+                    </div>
+                    </div>
                     </div>
 
                     <div className="bg-white rounded-lg shadow-lg p-6">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6">Demo Scenarios Available</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="border-2 border-blue-200 rounded-lg p-4 bg-blue-50">
-                          <div className="font-bold text-blue-900 mb-2">🌡️ Environmental Emergency</div>
-                          <div className="text-sm text-blue-800">Select: Critical temp + Water leak, send 3× to simulate ongoing crisis</div>
-                        </div>
-                        <div className="border-2 border-purple-200 rounded-lg p-4 bg-purple-50">
-                          <div className="font-bold text-purple-900 mb-2">🌐 Network Failure</div>
-                          <div className="text-sm text-purple-800">Select: Core switch + Network switch, send 5× to show cascading failures</div>
-                        </div>
-                        <div className="border-2 border-red-200 rounded-lg p-4 bg-red-50">
-                          <div className="font-bold text-red-900 mb-2">🔒 Security Incident</div>
-                          <div className="text-sm text-red-800">Select all 3 security alerts, send 2× for repeated breach attempts</div>
-                        </div>
-                        <div className="border-2 border-yellow-200 rounded-lg p-4 bg-yellow-50">
-                          <div className="font-bold text-yellow-900 mb-2">⚡ Power Emergency</div>
-                          <div className="text-sm text-yellow-800">Select: UPS battery + Generator failure, send 4× for power cascade</div>
-                        </div>
-                        <div className="border-2 border-orange-200 rounded-lg p-4 bg-orange-50">
-                          <div className="font-bold text-orange-900 mb-2">🔥 Fire Safety Chain</div>
-                          <div className="text-sm text-orange-800">Select: Smoke + Suppression, send 2× for incident grouping demo</div>
-                        </div>
-                        <div className="border-2 border-green-200 rounded-lg p-4 bg-green-50">
-                          <div className="font-bold text-green-900 mb-2">📟 MS Teams Integration</div>
-                          <div className="text-sm text-green-800">All incidents notify via MS Teams channels</div>
-                        </div>
-                      </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Demo Scenarios Available</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="border-2 border-blue-200 rounded-lg p-4 bg-blue-50">
+                    <div className="font-bold text-blue-900 mb-2">🌡️ Environmental Emergency</div>
+                    <div className="text-sm text-blue-800">Select: Critical temp + Water leak, send 3× to simulate ongoing crisis</div>
+                    </div>
+                    <div className="border-2 border-purple-200 rounded-lg p-4 bg-purple-50">
+                    <div className="font-bold text-purple-900 mb-2">🌐 Network Failure</div>
+                    <div className="text-sm text-purple-800">Select: Core switch + Network switch, send 5× to show cascading failures</div>
+                    </div>
+                    <div className="border-2 border-red-200 rounded-lg p-4 bg-red-50">
+                    <div className="font-bold text-red-900 mb-2">🔒 Security Incident</div>
+                    <div className="text-sm text-red-800">Select all 3 security alerts, send 2× for repeated breach attempts</div>
+                    </div>
+                    <div className="border-2 border-yellow-200 rounded-lg p-4 bg-yellow-50">
+                    <div className="font-bold text-yellow-900 mb-2">⚡ Power Emergency</div>
+                    <div className="text-sm text-yellow-800">Select: UPS battery + Generator failure, send 4× for power cascade</div>
+                    </div>
+                    <div className="border-2 border-orange-200 rounded-lg p-4 bg-orange-50">
+                    <div className="font-bold text-orange-900 mb-2">🔥 Fire Safety Chain</div>
+                    <div className="text-sm text-orange-800">Select: Smoke + Suppression, send 2× for incident grouping demo</div>
+                    </div>
+                    <div className="border-2 border-green-200 rounded-lg p-4 bg-green-50">
+                    <div className="font-bold text-green-900 mb-2">📟 MS Teams Integration</div>
+                    <div className="text-sm text-green-800">All incidents notify via MS Teams channels</div>
+                    </div>
+                    </div>
                     </div>
                   </div>
                 </div>
