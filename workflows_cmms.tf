@@ -1,12 +1,10 @@
-# ============================================================================
-# CMMS INTEGRATION WORKFLOW (Manual Prompt Version)
-# ============================================================================
-# Prompts responders to create CMMS work order with pre-filled details
-# Note: Automatic webhook creation not available in current PagerDuty plan
+# CMMS Integration Workflow - MANUAL TRIGGER ONLY
+# Responders can manually trigger this workflow from any incident
+# to create a CMMS work order
 
 resource "pagerduty_incident_workflow" "cmms_integration" {
-  name        = "CMMS Work Order Prompt"
-  description = "Prompts responder to create CMMS work order with incident details"
+  name        = "Create CMMS Work Order"
+  description = "Manual workflow to create CMMS work order with incident details"
 
   step {
     name   = "cmms_creation_prompt"
@@ -15,9 +13,9 @@ resource "pagerduty_incident_workflow" "cmms_integration" {
     input {
       name  = "message"
       value = <<-EOT
-📋 CMMS WORK ORDER REQUIRED
+📋 CMMS WORK ORDER CREATION
 
-Please create a CMMS work order with the following details:
+Creating CMMS work order with the following details:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🆔 PagerDuty Incident: {{incident.id}}
 📌 Title: {{incident.title}}
@@ -27,17 +25,27 @@ Please create a CMMS work order with the following details:
 🕐 Created: {{incident.created_at}}
 🔗 Link: {{incident.html_url}}
 
-After creating the CMMS ticket, reply with:
+Please create the CMMS ticket and reply with:
 "CMMS Work Order #[NUMBER] created"
 EOT
     }
   }
+
+  step {
+    name   = "add_conference_bridge"
+    action = "pagerduty.com:incident-workflows:add-conference-bridge:1"
+
+    input {
+      name  = "conference_url"
+      value = var.conference_bridge_url
+    }
+
+    input {
+      name  = "conference_number"
+      value = var.conference_bridge_url
+    }
+  }
 }
 
-# Trigger for all high-urgency incidents across all services
-resource "pagerduty_incident_workflow_trigger" "cmms_high_urgency" {
-  type                       = "conditional"
-  workflow                   = pagerduty_incident_workflow.cmms_integration.id
-  subscribed_to_all_services = true
-  condition                  = "incident.urgency == 'high'"
-}
+# NO TRIGGER - This workflow is MANUAL ONLY
+# Responders click "Run Workflow" button in PagerDuty UI
